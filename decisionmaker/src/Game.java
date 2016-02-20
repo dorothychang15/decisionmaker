@@ -1,9 +1,10 @@
-package decisionmaker;
+//package decisionmaker;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.util.LinkedList;
 
 
 public class Game implements Runnable {
@@ -38,12 +39,15 @@ public class Game implements Runnable {
 		    		JTextField field1 = new JTextField();
 		    		JTextField field2 = new JTextField();
 				int option = JOptionPane.showConfirmDialog(frame, new Object[]{field1, field2}, "Enter your choices", JOptionPane.OK_CANCEL_OPTION);
+				
 				if (option == JOptionPane.OK_OPTION) {
 					String op1 = field1.getText();
 					String op2 = field2.getText();
+					Node n = new Node(op1, op2);
+					nodes.add(n);
 				}
-				Node n = new Node(op1, op2);
-				nodes.add(n);
+				
+				
 		    	}
 		    }
 

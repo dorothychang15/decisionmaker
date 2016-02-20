@@ -1,4 +1,4 @@
-package decisionmaker;
+
 
 import java.awt.*;
 import javax.swing.*;
