@@ -8,6 +8,7 @@ import java.awt.event.MouseMotionListener;
 
 public class Game implements Runnable {
 	public void run() {
+		LinkedList<Node> nodes = new LinkedList<Node>();
 
 		final JFrame frame = new JFrame("Decision Maker");
 		frame.setLocation(300, 300);
@@ -34,16 +35,15 @@ public class Game implements Runnable {
 		    	int x = e.getX();
 		    	int y = e.getY();
 		    	if(e.getClickCount()==2) {
-		    		String s = (String)JOptionPane.showInputDialog(
-		                    frame,
-		                    "Enter your options:"
-		                    + "\"Green eggs and...\"",
-		                    "Customized Dialog",
-		                    JOptionPane.PLAIN_MESSAGE,
-		                    null,
-		                    null,
-		                    "Option 1");
-
+		    		JTextField field1 = new JTextField();
+		    		JTextField field2 = new JTextField();
+				int option = JOptionPane.showConfirmDialog(frame, new Object[]{field1, field2}, "Enter your choices", JOptionPane.OK_CANCEL_OPTION);
+				if (option == JOptionPane.OK_OPTION) {
+					String op1 = field1.getText();
+					String op2 = field2.getText();
+				}
+				Node n = new Node(op1, op2);
+				nodes.add(n);
 		    	}
 		    }
 
